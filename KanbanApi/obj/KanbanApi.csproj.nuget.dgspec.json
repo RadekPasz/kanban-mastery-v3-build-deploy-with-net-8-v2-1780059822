@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\radek\\OneDrive\\Pulpit\\Nerdsacademy ENG project\\KanbanApi\\KanbanApi.csproj": {}
+    "c:\\Users\\radek\\OneDrive\\Pulpit\\Nerdsacademy ENG project\\KanbanApi\\KanbanApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\radek\\OneDrive\\Pulpit\\Nerdsacademy ENG project\\KanbanApi\\KanbanApi.csproj": {
+    "c:\\Users\\radek\\OneDrive\\Pulpit\\Nerdsacademy ENG project\\KanbanApi\\KanbanApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\radek\\OneDrive\\Pulpit\\Nerdsacademy ENG project\\KanbanApi\\KanbanApi.csproj",
+        "projectUniqueName": "c:\\Users\\radek\\OneDrive\\Pulpit\\Nerdsacademy ENG project\\KanbanApi\\KanbanApi.csproj",
         "projectName": "KanbanApi",
-        "projectPath": "C:\\Users\\radek\\OneDrive\\Pulpit\\Nerdsacademy ENG project\\KanbanApi\\KanbanApi.csproj",
+        "projectPath": "c:\\Users\\radek\\OneDrive\\Pulpit\\Nerdsacademy ENG project\\KanbanApi\\KanbanApi.csproj",
         "packagesPath": "C:\\Users\\radek\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\radek\\OneDrive\\Pulpit\\Nerdsacademy ENG project\\KanbanApi\\obj\\",
+        "outputPath": "c:\\Users\\radek\\OneDrive\\Pulpit\\Nerdsacademy ENG project\\KanbanApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\radek\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -43,6 +43,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.*, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[8.0.27, )"
