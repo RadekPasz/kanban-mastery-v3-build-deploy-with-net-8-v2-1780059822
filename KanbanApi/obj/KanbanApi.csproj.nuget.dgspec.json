@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\radek\\OneDrive\\Pulpit\\Nerdsacademy ENG project\\KanbanApi\\KanbanApi.csproj": {}
+    "C:\\Users\\radek\\OneDrive\\Pulpit\\Nerdsacademy ENG project\\KanbanApi\\KanbanApi.csproj": {}
   },
   "projects": {
-    "c:\\Users\\radek\\OneDrive\\Pulpit\\Nerdsacademy ENG project\\KanbanApi\\KanbanApi.csproj": {
+    "C:\\Users\\radek\\OneDrive\\Pulpit\\Nerdsacademy ENG project\\KanbanApi\\KanbanApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\radek\\OneDrive\\Pulpit\\Nerdsacademy ENG project\\KanbanApi\\KanbanApi.csproj",
+        "projectUniqueName": "C:\\Users\\radek\\OneDrive\\Pulpit\\Nerdsacademy ENG project\\KanbanApi\\KanbanApi.csproj",
         "projectName": "KanbanApi",
-        "projectPath": "c:\\Users\\radek\\OneDrive\\Pulpit\\Nerdsacademy ENG project\\KanbanApi\\KanbanApi.csproj",
+        "projectPath": "C:\\Users\\radek\\OneDrive\\Pulpit\\Nerdsacademy ENG project\\KanbanApi\\KanbanApi.csproj",
         "packagesPath": "C:\\Users\\radek\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\radek\\OneDrive\\Pulpit\\Nerdsacademy ENG project\\KanbanApi\\obj\\",
+        "outputPath": "C:\\Users\\radek\\OneDrive\\Pulpit\\Nerdsacademy ENG project\\KanbanApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\radek\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -45,11 +45,21 @@
           "dependencies": {
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[8.0.*, )"
+              "version": "[8.0.11, )"
             },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[8.0.27, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[8.0.11, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -75,7 +85,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.421/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.422/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
