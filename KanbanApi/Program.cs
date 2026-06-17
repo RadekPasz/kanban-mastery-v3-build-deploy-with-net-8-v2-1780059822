@@ -36,6 +36,19 @@ app.UseAuthorization();
 // Identity register/login/refresh endpoints.
 app.MapIdentityApi<ApplicationUser>();
 
+app.MapGet("/boards", async (ClaimsPrincipal user, IBoardService boards) =>
+{
+    var userId = user.FindFirstValue(ClaimTypes.NameIdentifier);
+    if (userId is null)
+        return Results.Unauthorized();
+
+    var result = await boards.GetBoardsForUserAsync(userId);
+    return Results.Ok(result);
+})
+.WithName("GetBoards")
+.WithOpenApi()
+.RequireAuthorization();
+
 app.MapDelete("/boards/{id:int}", async (int id, ClaimsPrincipal user, IBoardService boards) =>
 {
     var userId = user.FindFirstValue(ClaimTypes.NameIdentifier);
