@@ -1,4 +1,18 @@
+using System.Security.Claims;
+using KanbanApi.Data;
+using KanbanApi.Models;
+using KanbanApi.Services;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddIdentityApiEndpoints<ApplicationUser>()
+    .AddEntityFrameworkStores<ApplicationDbContext>();
+
+builder.Services.AddScoped<IBoardService, BoardService>();
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -15,6 +29,28 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
+app.UseAuthorization();
+
+// Identity register/login/refresh endpoints.
+app.MapIdentityApi<ApplicationUser>();
+
+app.MapDelete("/boards/{id:int}", async (int id, ClaimsPrincipal user, IBoardService boards) =>
+{
+    var userId = user.FindFirstValue(ClaimTypes.NameIdentifier);
+    if (userId is null)
+        return Results.Unauthorized();
+
+    var deleted = await boards.DeleteBoardAsync(id, userId);
+
+    // DeleteBoardAsync returns false when the board doesn't exist or the
+    // user isn't its owner; we don't reveal which, so respond 404 either way.
+    return deleted ? Results.NoContent() : Results.NotFound();
+})
+.WithName("DeleteBoard")
+.WithOpenApi()
+.RequireAuthorization();
 
 var summaries = new[]
 {
