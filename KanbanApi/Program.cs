@@ -18,6 +18,7 @@ builder.Services.AddScoped<IBoardService, BoardService>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddIdentityApiEndpoints<ApplicationUser>();
 
 var app = builder.Build();
 
@@ -34,6 +35,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 // Identity register/login/refresh endpoints.
+app.MapIdentityApi<ApplicationUser>();
 app.MapIdentityApi<ApplicationUser>();
 
 app.MapGet("/boards", async (ClaimsPrincipal user, IBoardService boards) =>
