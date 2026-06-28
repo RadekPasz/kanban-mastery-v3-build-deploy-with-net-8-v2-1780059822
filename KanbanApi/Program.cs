@@ -14,6 +14,10 @@ builder.Services.AddIdentityApiEndpoints<ApplicationUser>()
 
 builder.Services.AddScoped<IBoardService, BoardService>();
 
+// Required because the pipeline calls app.UseAuthorization() below and the
+// /boards endpoints use .RequireAuthorization().
+builder.Services.AddAuthorization();
+
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -91,3 +95,7 @@ record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
 {
     public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
 }
+
+// Exposes the implicit Program class (generated from top-level statements) as
+// public so the integration test project can use WebApplicationFactory<Program>.
+public partial class Program { }
